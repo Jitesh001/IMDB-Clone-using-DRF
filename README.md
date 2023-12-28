@@ -49,7 +49,7 @@ POST - Body > Formdata - provide key-value pair(username, password, password2, e
 - http://127.0.0.1:8000/api/account/login/
 POST - Body > Formdata - provide key-value pair needed (username, password, password2), once sent req you get a token to access other API urls.
 
--http://127.0.0.1:8000/api/account/logout/
+- http://127.0.0.1:8000/api/account/logout/
 POST - Headers > Provide Key-Value pair (Authorization - token value), once req sent, you get logout.
 
 ### Watchlist Management
@@ -87,7 +87,7 @@ GET - get all reviews related to specific watchlist id. Only token authenticated
 GET - Get details of review based on provided id
 DELETE/PUT - only admin or user who created review can edit it, authentication token required.
 
-http://127.0.0.1:8000/api/watchlist/user-reviews/?username=user4
+- http://127.0.0.1:8000/api/watchlist/user-reviews/?username=user4
 user4  is username
 GET - get all the reviews added by the provided user.
 
