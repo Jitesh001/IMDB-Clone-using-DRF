@@ -40,7 +40,7 @@ Important folders in the project:
 
 ### User Authentication
 
-- [Register](http://127.0.0.1:8000/api/account/register/): POST request to register a new user
+- http://127.0.0.1:8000/api/account/register/: POST request to register a new user
 - [Login](http://127.0.0.1:8000/api/account/login/): POST request to log in and obtain a token
 - [Logout](http://127.0.0.1:8000/api/account/logout/): POST request with an Authorization token to log out
 
