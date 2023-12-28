@@ -1,6 +1,4 @@
 # IMDB-Clone-using-DRF
-Certainly! Here is a formatted version of the instructions for your GitHub README file:
-
 ---
 
 # Django Rest Framework API - IMDB Clone
