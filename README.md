@@ -40,17 +40,23 @@ Important folders in the project:
 
 ### User Authentication
 
-- http://127.0.0.1:8000/api/account/register/: POST request to register a new user
-- [Login](http://127.0.0.1:8000/api/account/login/): POST request to log in and obtain a token
-- [Logout](http://127.0.0.1:8000/api/account/logout/): POST request with an Authorization token to log out
+- http://127.0.0.1:8000/dashboard/
+Django RestFramework Admin dashboard. List of users with passwords in the database. [(watchappadmin, admin@123), (user1, user2, user4, user5, user6, user7, user8 have same password  = Abc@1234), 
+
+- http://127.0.0.1:8000/api/account/register/
+POST - Body > Formdata - provide key-value pair(username, password, password2, email), once send req you get token to access other API urls
+
+- http://127.0.0.1:8000/api/account/login/
+POST - Body > Formdata - provide key-value pair needed (username, password, password2), once sent req you get a token to access other API urls.
+
 
 ### Watchlist Management
 
-- [Get All Watchlists](http://127.0.0.1:8000/api/watchlist/): GET request to retrieve all watchlists
-- [Get Watchlist by ID](http://127.0.0.1:8000/api/watchlist/5/): GET request to retrieve details of a specific watchlist
-- [Create Review for Watchlist](http://127.0.0.1:8000/api/watchlist/9/review-create/): POST request to create a review for a watchlist
-- [Get Reviews for Watchlist](http://127.0.0.1:8000/api/watchlist/9/reviews/): GET request to retrieve reviews for a specific watchlist
-- [Get User Reviews](http://127.0.0.1:8000/api/watchlist/user-reviews/?username=user4): GET request to retrieve all reviews added by a specific user
+- [Get All Watchlists](http://127.0.0.1:8000/api/watchlist/ : GET request to retrieve all watchlists
+- [Get Watchlist by ID](http://127.0.0.1:8000/api/watchlist/5/ : GET request to retrieve details of a specific watchlist
+- [Create Review for Watchlist](http://127.0.0.1:8000/api/watchlist/9/review-create/ : POST request to create a review for a watchlist
+- [Get Reviews for Watchlist](http://127.0.0.1:8000/api/watchlist/9/reviews/ : GET request to retrieve reviews for a specific watchlist
+- [Get User Reviews](http://127.0.0.1:8000/api/watchlist/user-reviews/?username=user4 : GET request to retrieve all reviews added by a specific user
 
 ### Streaming Platform Management
 
