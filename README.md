@@ -49,28 +49,47 @@ POST - Body > Formdata - provide key-value pair(username, password, password2, e
 - http://127.0.0.1:8000/api/account/login/
 POST - Body > Formdata - provide key-value pair needed (username, password, password2), once sent req you get a token to access other API urls.
 
+-http://127.0.0.1:8000/api/account/logout/
+POST - Headers > Provide Key-Value pair (Authorization - token value), once req sent, you get logout.
 
 ### Watchlist Management
 
-- [Get All Watchlists](http://127.0.0.1:8000/api/watchlist/ : GET request to retrieve all watchlists
-- [Get Watchlist by ID](http://127.0.0.1:8000/api/watchlist/5/ : GET request to retrieve details of a specific watchlist
-- [Create Review for Watchlist](http://127.0.0.1:8000/api/watchlist/9/review-create/ : POST request to create a review for a watchlist
-- [Get Reviews for Watchlist](http://127.0.0.1:8000/api/watchlist/9/reviews/ : GET request to retrieve reviews for a specific watchlist
-- [Get User Reviews](http://127.0.0.1:8000/api/watchlist/user-reviews/?username=user4 : GET request to retrieve all reviews added by a specific user
+- http://127.0.0.1:8000/api/watchlist/
+GET - get all watchlist - any user can access it, no token authentication
+Anonymous users can send 10 req/day, registered users with token authentication can send 100 req/day.
+POST - only admin can add new watchlist (movies/series)
+
+- http://127.0.0.1:8000/api/watchlist/5/ - here 5 is watchlist id
+GET - Get all the reviews for the particular watchlist id.
+Anonymous user can send 10 req/day, registered user with token authentication can send 100 req/day
+DELETE - Only admin can Delete the watchlist with specified ID.
 
 ### Streaming Platform Management
 
-- [Get All Streaming Platforms](http://127.0.0.1:8000/api/watchlist/stream/): GET request to retrieve a list of all streaming platforms
-- [Get Streaming Platform by ID](http://127.0.0.1:8000/api/watchlist/stream/1/): GET request to retrieve details of a specific streaming platform
-- [Create Streaming Platform](http://127.0.0.1:8000/api/watchlist/stream/): POST request to add a new streaming platform
-- [Update Streaming Platform](http://127.0.0.1:8000/api/watchlist/stream/1/): PUT request to update details of a specific streaming platform
-- [Delete Streaming Platform](http://127.0.0.1:8000/api/watchlist/stream/1/): DELETE request to delete a specific streaming platform
+- http://127.0.0.1:8000/api/watchlist/stream/
+GET - get list of all streaming platforms with available watchlist
+POST - add new streaming platform, only admin can add new platform, authentication token required.
+
+- http://127.0.0.1:8000/api/watchlist/stream/1/ - here 1 is stream ID
+GET - get details of particular streaming platform with ID provided.
+DELETE/PUT - add new streaming platform, only admin can add/DELETE new platform, authentication token required.
+
 
 ### Review Management
 
-- [Get Review by ID](http://127.0.0.1:8000/api/watchlist/reviews/12/): GET request to retrieve details of a specific review
-- [Update Review](http://127.0.0.1:8000/api/watchlist/reviews/12/): PUT request to update details of a specific review
-- [Delete Review](http://127.0.0.1:8000/api/watchlist/reviews/12/): DELETE request to delete a specific review
+- http://127.0.0.1:8000/api/watchlist/9/review-create/ - here 9 is Watch ID
+POST - authenticated user can only create a review, one review/watchlist.
+
+- http://127.0.0.1:8000/api/watchlist/9/reviews/  - here 9 is watchlist id
+GET - get all reviews related to specific watchlist id. Only token authenticated users can access it, 100 req/day.
+
+- http://127.0.0.1:8000/api/watchlist/reviews/12/ - 12 is Review ID
+GET - Get details of review based on provided id
+DELETE/PUT - only admin or user who created review can edit it, authentication token required.
+
+http://127.0.0.1:8000/api/watchlist/user-reviews/?username=user4
+user4  is username
+GET - get all the reviews added by the provided user.
 
 ## Testing API Endpoints
 
